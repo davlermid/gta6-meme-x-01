@@ -69,14 +69,14 @@ def draw_skyline(draw, width, height, color, window_color, seed=123):
     while x < width:
         w = random.randint(70, 150)
         h = random.randint(120, 280)
-        y = height - h
-        draw.rectangle([x, y, x + w, height], fill=color)
+        building_top = height - h
+        draw.rectangle([x, building_top, x + w, height], fill=color)
         for _ in range(random.randint(2, 5)):
-            wx = x + random.randint(5, w - 10)
-            wy = y + random.randint(10, h - 20)
+            wx = x + random.randint(8, w - 12)
+            wy = random.randint(building_top + 12, height - 20)
             ws = random.randint(4, 8)
             draw.rectangle([wx, wy, wx + ws, wy + ws], fill=window_color)
-        x += w
+        x += w + random.randint(4, 12)
 
 def draw_text_with_stroke(draw, xy, text, font, fill, stroke_fill, stroke_width):
     x, y = xy
